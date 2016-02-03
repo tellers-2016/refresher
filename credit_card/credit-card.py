@@ -1,19 +1,64 @@
 class CreditCard:
     def __init__(self, card_number):
-        self.card_number = "the card number"
+        self.card_number = card_number
         self.card_type = "a string"
-        self.valid = "a boolean"
+        self.valid = True
+
+        print (self.card_number)
+        self.determine_card_type()
 
 # Create and add your method called `determine_card_type` to the CreditCard class here:
     def determine_card_type(self):
-        pass
+        print("RUNNING")
+        print(self.card_number[0:2])
+        if self.card_number[0]== "4":
+            self.card_type = "Visa"
+            self.check_length()
+        elif self.card_number[0:2] in ["51", "52", "53", "54", "55"]:
+            self.card_type = "Mastercard"
+            self.check_length()
+        elif self.card_number[0:2] in ["34", "37"]:
+            self.card_type = "American Express"
+            self.check_length()
+        elif self.card_number[0:4] == "6011":
+            self.card_type = "Discover"
+            self.check_length()
+        else:
+            print("INSIDE ELSE")
+            self.card_type="INVALID"
+            self.valid = False
+
+
 
 # Create and add your method called `check_length` to the CreditCard class here:
     def check_length(self):
-        pass
+        #print("AT LENGTH")
+
+        if len(self.card_number) == 15 or len(self.card_number) == 16:
+            #print ("MADE it PASS IF")
+            self.validate()
+        else:
+            #print ("AT ELSE")
+            self.card_type="INVALID"
+            self.valid = False
+
+
+
 
 # Create and add your method called 'validate' to the CreditCard class here:
     def validate(self):
+        #print ("AT NUMBERS")
+        numbers = list(self.card_number)
+        new_numbers=[]
+        for num in numbers:
+            new_numbers.append(int(num))
+        print(new_numbers)
+        for index in range(len(new_numbers)-2,-1,-2):
+            print(new_numbers[index])
+        #print(new_numbers)
+
+
+        #print(numbers)
         pass
 
 
