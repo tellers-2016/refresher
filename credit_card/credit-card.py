@@ -50,11 +50,32 @@ class CreditCard:
         #print ("AT NUMBERS")
         numbers = list(self.card_number)
         new_numbers=[]
+        double_num_list = []
+        reverse_double = []
+        
         for num in numbers:
-            new_numbers.append(int(num))
+            new_numbers.append(int(num)) #change from string to int
         print(new_numbers)
-        for index in range(len(new_numbers)-2,-1,-2):
-            print(new_numbers[index])
+        for index in range(len(new_numbers)-2,-1,-2): #selects every other number starting from last index and stores in new numbers
+            #print(new_numbers[index])
+            double_num_list.append(new_numbers[index] + new_numbers[index])
+        
+        y = reversed(double_num_list) #change the order of the list
+        for eachit in y:
+            reverse_double.append(eachit)
+        print(reverse_double)
+        
+        #for index in range(len(new_numbers)-2,-1,-2):
+           # remove(new_numbers[index])
+        
+        
+        
+            
+            
+           # print (double_value)
+           # double_numbers.append(index)+
+           # print(double_numbers[index])
+            
         #print(new_numbers)
 
 
